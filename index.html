@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f9fafb;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        /* Nav bar */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #111827;
+            padding: 15px 20px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        .logo {
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: #60a5fa;
+        }
+        /* Hamburger Icon */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .hamburger span {
+            height: 30px;
+            width: 25px;
+            background: #fff;
+            margin: 40px 0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        /* Mobile Menu */
+        .nav-links {
+             display: flex;
+             gap: 20px;
+        }
+        .nav-links.mobile {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background: #1f2937;
+            flex-direction: column;
+            width: 200px;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .nav-links.mobile a {
+            padding: 10px 0;
+        }
+        .nav-links.show {
+            display: flex;
+        }
+        /* Sections */
+        section {
+            padding: 100px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        #home {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: #fff;
+            padding-top: 80px;
+        }
+        #home img {
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: fadeIn 2s ease-in-out;
+            object-fit: cover;
+        }
+        #home h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        #home p {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            animation: fadeIn 3s ease-in-out;
+        }
+        #home .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #60a5fa;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s;
+        }
+        #home .btn:hover {
+            color: #2563eb;
+            transform: translateY(-3px);
+        }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #111827;
+            color: #fff;
+            margin-top: 50px;
+        }
+        /* Animations */
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 0; transform: translateY(0);}
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+              display: flex;
+              justify-content: center;
+              text-align: center;
+           }
+           /* show hamburger */
+           .hamburger {
+              display: flex;
+           }
+           /* hide the nav links untill hamburger is clicked */
+           .nav-links {
+              display: none;
+           }
+           /* when hamburger is active, show nav links */
+           .nav-links.mobile {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+           }
+           
+           nav a {
+              margin: 0 10px;
+              font-size: 0.9rem;
+           }
+           #home h1 {
+              font-size: 2rem;
+           }
+           #home p {
+              font-size: 1rem;
+           }
+           #home img {
+              width: 120px;
+              height: 120px;
+           }
+        }
+
+        @media (max-width: 480px) {
+           nav {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: center;
+            }
+            nav a {
+              margin: 5px 10px;
+              font-size: 0.85rem;
+            }
+            section {
+              padding: 80px 15px;
+            }
+            #home h1 {
+              font-size: 1.6rem;
+            }
+            #home p {
+              font-size: 0.9rem;
+            }
+            #home .btn {
+              padding: 10px 18px;
+              font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Nav bar -->
+     <header>
+        <div class="logo">
+            <nav class="nav-links">
+                <a href="#">Home</a>
+                <a href="about.html">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="contact.html">Contact</a>
+                </nav>
+
+                <div class="hamburger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="nav-links mobile" id="mobileMenu">
+                    <a href="#"  onclick="toggleMenu()">Home</a>
+                    <a href="about.html"  onclick="toggleMenu()">About</a>
+                    <a href="projects.html"  onclick="toggleMenu()">Projects</a>
+                    <a href="contact.html"   onclick="toggleMenu()">Contact</a>
+                </div>
+        </div>
+     </header>
+
+     <!-- Home Section -->
+      <section id="home">
+        <img src="#" alt="Profile Picture">
+        <h1>Hello, <span style="color: #93c5fd;">I'm Ezenwa Joseph</span></h1>
+        <p>Aspiring Web Developer/Design/Creator</p>
+        <a href="cv.pdf" class="btn" download>Download CV</a>
+      </section>
+
+      <!-- Footer -->
+       <footer>
+        <p>&copy; 2025 Ezenwa Joseph. All Rights Reserved &reg;</p>
+       </footer>
+</body>
+</html>
