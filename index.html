@@ -54,14 +54,18 @@
             display: none;
             flex-direction: column;
             cursor: pointer;
+            gap: 5px;
         }
         .hamburger span {
-            height: 30px;
-            width: 25px;
+            height: 3px;
+            width: 28px;
             background: #fff;
             margin: 40px 0;
-            border-radius: 2px;
+            border-radius: 3px;
             transition: 0.3s;
+        }
+        #mobileMenu {
+            display: none;
         }
         /* Mobile Menu */
         .nav-links {
@@ -82,9 +86,9 @@
         .nav-links.mobile a {
             padding: 10px 0;
         }
-        .nav-links.show {
-            display: flex;
-        }
+         /* .nav-links.show {
+            display: flex; 
+        } */
         /* Sections */
         section {
             padding: 100px 20px;
@@ -151,27 +155,30 @@
         }
         /* Responsive Design */
         @media (max-width: 768px) {
-            nav {
-              display: flex;
-              justify-content: center;
-              text-align: center;
-           }
+            nav.nav-links {
+                display: none;
+            }
            /* show hamburger */
            .hamburger {
               display: flex;
            }
-           /* hide the nav links untill hamburger is clicked */
-           .nav-links {
+           #mobileMenu {
               display: none;
+              position: absolute;
+              top: 60px;
+              right: 20px;
+              background: #1f2937;
+              width: 200px;
+              text-align: center;
+              padding: 15px;
+              border-radius: 8px;
+              flex-direction: column;
+              gap: 20px;
            }
-           /* when hamburger is active, show nav links */
-           .nav-links.mobile {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            text-align: center;
+           #mobileMenu.show {
+              display: flex;
            }
-           
+
            nav a {
               margin: 0 10px;
               font-size: 0.9rem;
@@ -217,7 +224,8 @@
 <body>
     <!-- Nav bar -->
      <header>
-        <div class="logo">
+        <div class="logo">Ezenwa Joseph</div>
+
             <nav class="nav-links">
                 <a href="#">Home</a>
                 <a href="about.html">About</a>
@@ -237,7 +245,7 @@
                     <a href="projects.html"  onclick="toggleMenu()">Projects</a>
                     <a href="contact.html"   onclick="toggleMenu()">Contact</a>
                 </div>
-        </div>
+        
      </header>
 
      <!-- Home Section -->
@@ -252,5 +260,13 @@
        <footer>
         <p>&copy; 2025 Ezenwa Joseph. All Rights Reserved &reg;</p>
        </footer>
+
+
+       <script>
+            function toggleMenu() {
+            document.getElementById("mobileMenu").classList.toggle("show");
+        }
+        </script>
+
 </body>
 </html>
