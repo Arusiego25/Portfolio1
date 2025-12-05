@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: blue;
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(aut-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        .card h3 {
+            margin-bottom: 10px;
+            color: #2563eb;
+        }
+        #projects {
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+          from {opacity: 0; transform: translateY(20px);}
+          to {opacity: 0; transform: translateY(0);}
+       }
+    </style>
+</head>
+<body>
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="card">
+                <h3>Project One</h3>
+                <p>A simple description of my first project.</p>
+            </div>
+            <div class="card">
+                <h3>Project Two</h3>
+                <p>A simple description of my first project.</p>
+            </div>
+            <div class="card">
+                <h3>Project Three</h3>
+                <p>A simple description of my first project.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
